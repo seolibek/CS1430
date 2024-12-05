@@ -14,3 +14,13 @@ uh yeah this should totally be colab i think
 
 'tweaking we can j copy this from SAM. see: inference_playground.ipynb
 '
+
+
+
+
+'''wait i want to select specific photos from UTKFACE this script will do that.
+
+parse images based on name, 5 total ethniciteis represented, age must be between 18 to 85, gender should be balanced
+
+format:
+[age]_[gender]_[race]_[date&time].jpg'''
