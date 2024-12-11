@@ -1,20 +1,4 @@
-'''
 
-Script to take photos from UTK face dataset and generate the synthetic dataset as required by the Disney model.
-
-Requirements:
-
-    - must be in data/processed/train
-    - need to download SAM - look into this can probably install as dependencies.. mayb this should be a colab
-    - must be in format person[id]/[age].jpg, where each folder contains images of one person
-
-uh yeah this should totally be colab i think
-tweaking we can j copy this from SAM. see: inference_playground.ipynb
-
-
-
-
-'''
 
 '''wait i want to select specific photos from UTKFACE this script will do that.
 
@@ -26,15 +10,17 @@ format:
 import os
 import random
 
-utkface_path = '/Users/seoli/Desktop/CS1430/CS1430/UTKFace' #put in your path for the utkface here but idt you need to because i already have subset of data.
-
+#here's the link to download the full UTK face aligned and cropped dataset: https://www.kaggle.com/datasets/moritzm00/utkface-cropped/data
+utkface_path = '/Users/seoli/Desktop/CS1430/CS1430/UTKFace' #put in your path for the utkface you downloaded from aove
 output_dir = './data/'
 
-num_images = 2000 #can change this i think disney does 2k
+num_images = 2000 #can change this up to you
 
+
+##########     DO NOT CHANGE BELOW     ############
 age_bins = list(range(18, 86, 6)) #because paper is [18,85]
-ethnicities = [0, 1, 2, 3, 4] # utk has this separated : 0-white,1-black,2-asian,3-indian,4-others .. thats crazy lol
-genders = [0,1]  #0M,1F
+ethnicities = [0, 1, 2, 3, 4] # utk has this separated : 0-white,1-black,2-asian,3-indian,4-others .. 
+genders = [0,1]  #0 = M, 1 = F
 
 # #calculates how many images you want to select per group (a combination of age bin, ethnicity, and gender). It ensures that images are evenly distributed across all groups.
 images_per_bin = num_images // ((len(age_bins) - 1) * len(ethnicities) * len(genders))
@@ -76,3 +62,14 @@ for img in final_images:
 print(f"Selected {len(final_images)} images for processing.")
 
 
+'''
+and then if u wanna try running SAM yourself you could do it like this
+
+git clone https://github.com/yuval-alaluf/SAM.git
+cd SAM
+
+either create a new env like following or use one that has these in it:
+pip install torch torchvision
+conda install -c conda-forge ninja
+
+'''
