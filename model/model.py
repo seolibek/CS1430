@@ -52,3 +52,12 @@ class UpLayer(nn.Module):
 #define the unet architecture
  
 #define the discriminator
+
+'''Patch Gan Discriminator: often used for trasnlation tasks, image->image usually (see: https://paperswithcode.com/method/patchgan  ).
+   It's been out there for awhile
+
+   Patch gan vs regular gan is (as name imples) patch->patch checking for loss; similar to a cnn layer basically..
+
+   Thought this was a great resource: https://sahiltinky94.medium.com/understanding-patchgan-9f3c8380c207 
+   
+   ''' 

@@ -1,0 +1,9 @@
+For the alpha beta blending..:
+
+
+For the aging model:
+Finish models.py, losses.py (easier, should take around 30 more min)
+Edit test_functions.py (don’t need video stuff, because we are working w only images. This will be far simpler than what they have) (maybe like an hour)
+Write our version of train.py (this will take awhile)
+
+run train.py then debug. can probbaly move this entire repo to oscar and train there, bc we not dependant on notebooks (good sign)
