@@ -61,7 +61,7 @@ for img in final_images:
 
 print(f"Selected {len(final_images)} images for processing.")
 
-
+#ignore
 '''
 and then if u wanna try running SAM yourself you could do it like this
 
