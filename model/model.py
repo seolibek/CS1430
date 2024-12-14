@@ -56,8 +56,11 @@ class UpLayer(nn.Module):
 '''Patch Gan Discriminator: often used for trasnlation tasks, image->image usually (see: https://paperswithcode.com/method/patchgan  ).
    It's been out there for awhile
 
-   Patch gan vs regular gan is (as name imples) patch->patch checking for loss; similar to a cnn layer basically..
+   Patch gan vs regular gan is (as name imples) patch->patch checking for loss; similar to a cnn layer basically.. essentially used instead of reg because small details in face really matter.
 
    Thought this was a great resource: https://sahiltinky94.medium.com/understanding-patchgan-9f3c8380c207 
+   Output is n x n output vector instead of a single scalar value.
+
+   
    
    ''' 
