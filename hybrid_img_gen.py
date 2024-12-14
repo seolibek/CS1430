@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 from math import sqrt
+import os
 
 def plot_images(images: list, titles: list, rows: int, columns: int, fig_width=15, fig_height=7):
     fig = plt.figure(figsize=(fig_width, fig_height))
@@ -57,6 +58,7 @@ def generate_hybrid_image(image_high, image_low, D0=50):
         hybrid_channels.append(hybrid_channel_normalized)
 
     hybrid_image = cv2.merge(hybrid_channels)
+
     return hybrid_image
 
 def average_images(image1, image2):
@@ -65,8 +67,8 @@ def average_images(image1, image2):
 # image_high = cv2.imread('UTK_processed/83_0_0_20170120225615281.jpg.chip.jpg', cv2.IMREAD_COLOR)
 # image_low = cv2.imread('UTK_processed/83_1_0_20170120230456826.jpg.chip.jpg', cv2.IMREAD_COLOR)
 
-image_high = cv2.imread('/Users/seoli/Desktop/CS1430/CS1430/UTK_processed/18_0_4_20170103234736836.jpg.chip.jpg', cv2.IMREAD_COLOR)
-image_low = cv2.imread('/Users/seoli/Desktop/CS1430/CS1430/UTK_processed/82_1_1_20170110154342872.jpg.chip.jpg', cv2.IMREAD_COLOR)
+image_high = cv2.imread('UTK_processed/chosen_data/001_man_18_SA.jpg', cv2.IMREAD_COLOR)
+image_low = cv2.imread('UTK_processed/chosen_data/001_woman_18_white.jpg', cv2.IMREAD_COLOR)
 
 image_high_resized = cv2.resize(image_high, (128, 128))
 image_low_resized = cv2.resize(image_low, (128, 128))
@@ -79,6 +81,15 @@ image_high_resized_rgb = cv2.cvtColor(image_high_resized, cv2.COLOR_BGR2RGB)
 image_low_resized_rgb = cv2.cvtColor(image_low_resized, cv2.COLOR_BGR2RGB)
 hybrid_image_rgb = cv2.cvtColor(hybrid_image, cv2.COLOR_BGR2RGB)
 averaged_images_rgb = cv2.cvtColor(averaged_images, cv2.COLOR_BGR2RGB)
+
+# Convert the averaged_images_rgb back to BGR before saving
+averaged_images_bgr = cv2.cvtColor(averaged_images_rgb, cv2.COLOR_RGB2BGR)
+
+# Save output-image in the folder
+output_folder = "morphed_photo"
+os.makedirs(output_folder, exist_ok=True)
+output_path = os.path.join(output_folder, "hybrid_image.jpg")
+cv2.imwrite(output_path, averaged_images_bgr)
 
 plot_images([image_high_resized_rgb, image_low_resized_rgb, averaged_images_rgb],
             ['High Frequency Image', 'Low Frequency Image', 'Hybrid Image'],
