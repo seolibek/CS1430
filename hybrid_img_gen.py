@@ -62,8 +62,11 @@ def generate_hybrid_image(image_high, image_low, D0=50):
 def average_images(image1, image2):
     return np.uint8((image1.astype(np.float32) + image2.astype(np.float32)) / 2)
 
-image_high = cv2.imread('UTK_processed/83_0_0_20170120225615281.jpg.chip.jpg', cv2.IMREAD_COLOR)
-image_low = cv2.imread('UTK_processed/83_1_0_20170120230456826.jpg.chip.jpg', cv2.IMREAD_COLOR)
+# image_high = cv2.imread('UTK_processed/83_0_0_20170120225615281.jpg.chip.jpg', cv2.IMREAD_COLOR)
+# image_low = cv2.imread('UTK_processed/83_1_0_20170120230456826.jpg.chip.jpg', cv2.IMREAD_COLOR)
+
+image_high = cv2.imread('/Users/seoli/Desktop/CS1430/CS1430/UTK_processed/18_0_4_20170103234736836.jpg.chip.jpg', cv2.IMREAD_COLOR)
+image_low = cv2.imread('/Users/seoli/Desktop/CS1430/CS1430/UTK_processed/82_1_1_20170110154342872.jpg.chip.jpg', cv2.IMREAD_COLOR)
 
 image_high_resized = cv2.resize(image_high, (128, 128))
 image_low_resized = cv2.resize(image_low, (128, 128))

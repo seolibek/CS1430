@@ -5,7 +5,21 @@
 parse images based on name, 5 total ethniciteis represented, age must be between 18 to 85, gender should be balanced
 
 format:
-[age]_[gender]_[race]_[date&time].jpg'''
+[age]_[gender]_[race]_[date&time].jpg
+
+
+
+
+
+
+POTENTIAL ISSUE: USING UTKFACE ON THE SAM DATASET GIVES REALLY WEIRD IMAGES; MUST PROBABL USE FFHQ - DATASET THEY 
+ACTUALLY USED - SO WE DONT GET UNNATRUAL PHOTOS IN DATASET.
+
+IN FFHQ DATSET, AGE AND RACE IS NOT INCLUDED IN METADATA, SO WE CANNOT SAMPLE/RESTRICT THE DATA WE USE
+
+
+
+'''
 
 import os
 import random
